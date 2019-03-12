@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class ME2 {
@@ -6,7 +7,10 @@ public class ME2 {
 
     static ArrayList<String> arrayList = new ArrayList<String>();
 
+
+
     public static ArrayList<String> permutations(String s, String prefix) {
+
 
 
         if (s.length() == 1) {
@@ -24,43 +28,39 @@ public class ME2 {
 
     public static int[] getPermutations(int n) {
         String numberInString = String.valueOf(n);
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList2 = new ArrayList<String>();
+        arrayList.clear();
+
+        arrayList2 = permutations(numberInString, "");
 
 
-        arrayList = permutations(numberInString, "");
+        Collections.sort(arrayList2);
 
-
-        Collections.sort(arrayList);
-
-        for (int i = 0; i < arrayList.size() - 1; i++) {
-            if (arrayList.get(i).equals(arrayList.get(i + 1))) {
-                arrayList.remove(i);
+        for (int i = 0; i < arrayList2.size() - 1; i++) {
+            if (arrayList2.get(i).equals(arrayList2.get(i + 1))) {
+                arrayList2.remove(i);
 
             }
 
         }
 
-        System.out.println(arrayList.size());
-        int[] arraynormal = new int[arrayList.size()];
+
+        int[] arraynormal = new int[arrayList2.size()];
 
 
-        for (int i = 0; i < arrayList.size(); i++) {
-            arraynormal[i] = Integer.valueOf(arrayList.get(i));
-
+        for (int i = 0; i < arrayList2.size(); i++) {
+            arraynormal[i] = Integer.valueOf(arrayList2.get(i));
         }
 
-        for (int i = 0; i < arraynormal.length; i++) {
-            System.out.println(arraynormal[i]);
-        }
 
-        System.out.println(arraynormal.length);
+
         return arraynormal;
     }
 
     public static void main(String[] args) {
 
-
-        getPermutations(7);
+        System.out.println(Arrays.toString(getPermutations(12)));
+        System.out.println(Arrays.toString(getPermutations(23)));
 
     }
 }
