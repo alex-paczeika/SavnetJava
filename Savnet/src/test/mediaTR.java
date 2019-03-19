@@ -9,7 +9,9 @@ public static void main(String[] args) {
     {
         
         if (a+b==0)
+        {
             return 0;
+        }
       return (2*a*b)/(a+b);
     }
 
